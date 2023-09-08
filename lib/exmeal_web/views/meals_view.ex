@@ -21,7 +21,12 @@ defmodule ExmealWeb.MealsView do
 
   def render("meal.json", %{meal: %Meal{} = meal}) do
     %{
-      meal: meal
+      "meal" => %{
+        "calories" => meal.calories,
+        "date" => meal.date,
+        "description" => meal.description,
+        "id" => meal.id
+      }
     }
   end
 end
