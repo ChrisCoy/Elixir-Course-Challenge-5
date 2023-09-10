@@ -8,6 +8,6 @@ defmodule Exmeal.Meals.Create do
   defp handle_insert({:ok, %Meal{} = result}), do: {:ok, result}
 
   defp handle_insert({:error, result}) do
-    {:error, %{status: :bad_request, result: result}}
+    {:error, %Exmeal.Error{result: result, status: :bad_request}}
   end
 end

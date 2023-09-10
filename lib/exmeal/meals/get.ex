@@ -8,7 +8,7 @@ defmodule Exmeal.Meals.Get do
       {:ok, meal}
     else
       :error -> {:error, %{status: :bad_request, result: "Invalid id format!"}}
-      nil -> {:error, %{status: :not_found, result: "Meal not found"}}
+      nil -> {:error, %Exmeal.Error{result: "Meal not found", status: :not_found}}
     end
   end
 end

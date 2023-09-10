@@ -47,8 +47,6 @@ defmodule Exmeal.MealsControllerTest do
 
       id = meal.id
 
-      IO.inspect(id, label: "meeeeeeaw")
-
       response =
         conn
         |> delete(Routes.meals_path(conn, :delete, id))

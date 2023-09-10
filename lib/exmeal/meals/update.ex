@@ -5,14 +5,14 @@ defmodule Exmeal.Meals.Update do
 
   def call(%{"id" => id} = params) do
     case UUID.cast(id) do
-      :error -> {:error, %{status: :bad_request, result: "Invalid id format!"}}
+      :error -> {:error, %Exmeal.Error{result: "Meal not found", status: :not_found}}
       {:ok, uuid} -> update(params)
     end
   end
 
   defp update(%{"id" => id} = params) do
     case Repo.get(Meal, id) do
-      nil -> {:error, %{status: :not_found, result: "Meal not found"}}
+      nil -> {:error, %Exmeal.Error{result: "Meal not found", status: :not_found}}
       meal -> do_update(meal, params)
     end
   end

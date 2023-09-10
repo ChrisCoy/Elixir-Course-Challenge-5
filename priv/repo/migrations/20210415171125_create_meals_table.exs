@@ -7,7 +7,7 @@ defmodule Exmeal.Repo.Migrations.CreateMealsTable do
       add(:date, :date)
       add(:description, :string)
 
-      # timestamps()
+      timestamps()
     end
   end
 end
